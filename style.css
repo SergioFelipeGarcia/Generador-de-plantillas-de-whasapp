@@ -1,0 +1,148 @@
+/* Estilos comerciales para la aplicación */
+@charset "UTF-8";
+
+.main-header {
+    background: linear-gradient(90deg, #4a90e2, #357abd);
+    color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.plantilla-card {
+    background-color: #f8f9fa;
+    border-left: 5px solid #4a90e2;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #2c3e50;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.plantilla-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.stButton button {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.stButton button:hover {
+    background-color: #357abd;
+}
+
+.stTextInput input, .stSelectbox select, .stTextArea textarea {
+    border-radius: 0.3rem;
+    border: 1px solid #dfe6e9;
+    padding: 0.5rem;
+}
+
+.stForm {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 1rem;
+    border-radius: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 1rem;
+    border-radius: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+/* Asegurar que los emojis se muestren correctamente */
+.emoji-container {
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Emoji", sans-serif;
+}
+
+/* Mockup estilo WhatsApp */
+.whatsapp-frame {
+    width: 300px;
+    height: 520px;
+    border: 16px solid #222;
+    border-radius: 36px;
+    position: relative;
+    background: #ece5dd;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+    margin: 1rem auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.whatsapp-header {
+    background: #075E54;
+    color: white;
+    padding: 10px;
+    font-size: 0.9rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.whatsapp-chat {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.chat-bubble {
+    background: #dcf8c6;
+    padding: 10px 14px;
+    border-radius: 8px 8px 0 8px;
+    max-width: 80%;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+    align-self: flex-end;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Botones estilo WhatsApp */
+.whatsapp-buttons {
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+    gap: 6px;
+}
+
+.whatsapp-button {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 6px 10px;
+    text-align: center;
+    font-size: 0.85rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.whatsapp-button:hover {
+    background: #f0f0f0;
+}
