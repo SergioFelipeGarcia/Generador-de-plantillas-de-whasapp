@@ -18,7 +18,7 @@ def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
-local_css("style.css")
+local_css("whatsapp-template-pro-main/style.css")
 
 # Función para generar plantillas con IA
 def generar_plantillas(datos_formulario):
