@@ -4,6 +4,7 @@ import json
 from datetime import datetime
 import io
 import re
+import os
 
 # Configuración de la página
 st.set_page_config(
@@ -15,14 +16,26 @@ st.set_page_config(
 
 # CSS personalizado para diseño comercial
 def local_css(file_name):
-    with open(file_name) as f:
-        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+    # Verifica si el archivo existe antes de intentar abrirlo
+    if os.path.exists(file_name):
+        with open(file_name) as f:
+            st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+    else:
+        st.warning(f"Advertencia: No se encontró el archivo '{file_name}'. La aplicación se ejecutará sin estilos personalizados.")
+        # Se puede añadir un mensaje al log para depuración
+        print(f"ERROR: Archivo no encontrado - '{file_name}'")
 
+# Carga del CSS al inicio de la aplicación
 local_css("style.css")
 
 # Función para generar plantillas con IA
 def generar_plantillas(datos_formulario):
-    api_key = st.secrets["API_KEY"]
+    # La clave de API se lee de forma segura desde el archivo secrets.toml
+    api_key = st.secrets.get("API_KEY")
+    if not api_key:
+        st.error("Error: No se encontró la clave de API. Por favor, asegúrate de que el archivo .streamlit/secrets.toml existe y contiene tu clave de API.")
+        return None
+    
     model = 'gemini-2.0-flash-exp'
     url = f'https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}'
     
@@ -194,8 +207,13 @@ def mostrar_en_mockup_componentes(cabecera, cuerpo, botones, negocio):
 
 # Interfaz principal
 def main():
+    # Usar st.sidebar para la barra lateral
     with st.sidebar:
-        st.image("FotoPerfilSergio.png", width=120)
+        # Usar un bloque if-else para manejar la imagen si no se encuentra
+        if os.path.exists("FotoPerfilSergio.png"):
+            st.image("FotoPerfilSergio.png", width=120)
+        else:
+            st.warning("Advertencia: No se encontró la imagen de perfil.")
         st.title("WhatsApp Template Pro")
         st.markdown("""
         **La solución profesional para crear plantillas de WhatsApp efectivas**
@@ -327,3 +345,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
